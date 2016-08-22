@@ -23,3 +23,13 @@ GridModelItem::~GridModelItem()
     for (int c = 0; c < numRows_; ++c)
         delete[] matrix_[c];
 }
+
+quint16 GridModelItem::data(int row, int col) const
+{
+    if (row < 0 || row > numRows_)
+        throw;
+    if (col < 0 || col > numCols_)
+        throw;
+
+    return matrix_[row][col];
+}
