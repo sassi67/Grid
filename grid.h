@@ -3,15 +3,16 @@
 
 #include <QObject>
 
-class GridModelItem
+class Grid
 {
 public:
-    GridModelItem(int rows = 0, int columns = 0);
-    ~GridModelItem();
+    Grid(int rows = 0, int columns = 0);
+    ~Grid();
 
     int rowCount() const { return numRows_; }
     int columnCount() const { return numCols_; }
     quint16 data(int row, int col) const;
+    bool setData(int row, int col, quint16 value);
 
 private:
     int numRows_;

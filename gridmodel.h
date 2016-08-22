@@ -3,21 +3,24 @@
 
 #include <QAbstractTableModel>
 
-class GridModelItem;
+class Grid;
 
 class GridModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
     GridModel(int rows, int columns, QObject *parent = 0);
-    ~GridModel();
+    virtual ~GridModel();
 
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
     virtual int columnCount(const QModelIndex & parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole);
+
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
 protected:
-    GridModelItem* internalGrid_;
+    Grid* internalGrid_;
 
 signals:
 

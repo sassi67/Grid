@@ -11,8 +11,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     gridmodel.cpp \
-    gridmodelitem.cpp
+    grid.cpp \
+    gridmodbus.cpp
 
 HEADERS += \
     gridmodel.h \
-    gridmodelitem.h
+    grid.h \
+    gridmodbus.h

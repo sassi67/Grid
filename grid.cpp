@@ -1,6 +1,6 @@
-#include "gridmodelitem.h"
+#include "grid.h"
 
-GridModelItem::GridModelItem(int rows, int columns):
+Grid::Grid(int rows, int columns):
     numRows_(rows),
     numCols_(columns)
 {
@@ -18,13 +18,13 @@ GridModelItem::GridModelItem(int rows, int columns):
             matrix_[r][c] = 0;
 }
 
-GridModelItem::~GridModelItem()
+Grid::~Grid()
 {
     for (int c = 0; c < numRows_; ++c)
         delete[] matrix_[c];
 }
 
-quint16 GridModelItem::data(int row, int col) const
+quint16 Grid::data(int row, int col) const
 {
     if (row < 0 || row > numRows_)
         throw;
@@ -32,4 +32,17 @@ quint16 GridModelItem::data(int row, int col) const
         throw;
 
     return matrix_[row][col];
+}
+
+bool Grid::setData(int row, int col, quint16 value)
+{
+    if (row < 0 || row > numRows_)
+        throw;
+    if (col < 0 || col > numCols_)
+        throw;
+    if (value < 0 || value > 0xFFFF)
+        throw;
+
+    matrix_[row][col] = value;
+    return true;
 }
