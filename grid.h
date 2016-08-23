@@ -6,7 +6,7 @@
 class Grid
 {
 public:
-    Grid(int rows = 0, int columns = 0);
+    Grid(int rows, int columns);
     ~Grid();
 
     int rowCount() const { return numRows_; }

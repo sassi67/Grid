@@ -83,9 +83,13 @@ bool GridModel::setData(const QModelIndex &index, const QVariant &value, int rol
          return ret;
 
      if (role == Qt::EditRole) {
-        quint16 v = value.toUInt(&ret);
-        if (ret)
-            return internalGrid_->setData(index.row(), index.column(), v);
+        int v = value.toInt(&ret);
+        if (ret) {
+            if (v < 0 || v > 0xFFFF)
+                ret = false;
+            else
+                ret = internalGrid_->setData(index.row(), index.column(), static_cast<quint16>(v));
+        }
      }
 
     return ret;
