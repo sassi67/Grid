@@ -9,11 +9,13 @@ SOURCES += main.cpp \
     gridmodel.cpp \
     grid.cpp \
     gridmodbus.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tableview.cpp
 
 HEADERS += \
     gridmodel.h \
     grid.h \
     gridmodbus.h \
     mainwindow.h \
-    utils.h
+    utils.h \
+    tableview.h

@@ -25,12 +25,20 @@ GridModBus::GridModBus(QObject *parent):
         dataMap_.insert(Utils::DATE_HOUR, QPair<int, int>(4, 2));
         dataMap_.insert(Utils::DATE_MIN, QPair<int, int>(5, 2));
     }
+
+    for (int r = 0; r < ROWS; ++r) {
+        for (int c = 0; c < COLUMNS; ++c){
+            QModelIndex mi = index(r, c, QModelIndex());
+
+            setData(mi, 0x00);
+        }
+    }
 }
 /**
- * @brief GridModBus::setGrid
- * @param type
- * @param index
- * @param data
+ * @brief GridModBus::set
+ * @param gridData
+ * @param value
+ * @param pos
  * @return
  */
 bool GridModBus::set(Utils::GRID_DATA gridData, const QVariant &value, int pos)

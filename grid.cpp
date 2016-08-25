@@ -17,9 +17,9 @@ Grid::Grid(int rows, int columns):
     for (int c = 0; c < numRows_; ++c)
         matrix_[c] = new quint16[numCols_];
 
-    for (int r = 0; r < numRows_; ++r)
-        for (int c = 0; c < numCols_; ++c)
-            matrix_[r][c] = 0;
+//    for (int r = 0; r < numRows_; ++r)
+//        for (int c = 0; c < numCols_; ++c)
+//            matrix_[r][c] = 0;
 }
 /**
  * @brief Grid::~Grid
